@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>EATHEREAL Studio — Photo & Video Services</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="#">EATHEREAL Studio</a>
+    <div><button id="openCart" class="icon-btn">🛒</button></div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <h1>Professional Photo & Video Services</h1>
+    <p>Meningkatkan branding produk & bisnis Anda dengan visual premium</p>
+  </div>
+</section>
+
+<section class="about">
+  <h2>Mengapa Memilih Kami?</h2>
+  <p>Kami menyediakan layanan fotografi & videografi premium dengan konsep modern, didukung oleh tim berpengalaman dan peralatan terbaik.</p>
+</section>
+
+<section class="packages">
+  <h2>Pilihan Paket Harga (Hemat!)</h2>
+  <div class="package-grid">
+    <div class="package-card">
+      <h3>Bronze</h3><p class="price">Rp 250.000</p>
+      <ul><li>✅ 5 Foto HD</li><li>✅ Basic Editing</li><li>✅ 1 Angle Utama</li></ul>
+    </div>
+    <div class="package-card">
+      <h3>Silver</h3><p class="price">Rp 450.000</p>
+      <ul><li>✅ 10 Foto HD</li><li>✅ Advanced Editing</li><li>✅ Video 10-15 detik</li></ul>
+    </div>
+    <div class="package-card">
+      <h3>Gold</h3><p class="price">Rp 750.000</p>
+      <ul><li>✅ 15 Foto HD</li><li>✅ Premium Editing</li><li>✅ Video 20-30 detik</li></ul>
+    </div>
+  </div>
+</section>
+
+<main class="container">
+  <h2 style="font-size:32px; margin-bottom: 25px;">Pesan Jasa Satuan</h2>
+  <section class="product-grid" id="productGrid"></section>
+</main>
+
+<footer>© <span id="year"></span> EATHEREAL Studio</footer>
+
+<div id="productModal" class="modal hidden">
+<div class="modal-content">
+<button id="closeModal" class="close-modal">×</button>
+<img id="modalImg" class="modal-img">
+<h2 id="modalTitle"></h2>
+<p id="modalPrice" style="font-size: 24px; font-weight: 700; color: var(--accent); margin-top: 5px;"></p>
+<p id="modalDesc" style="opacity: 0.8; margin-bottom: 15px;"></p>
+
+<div class="extra-info">
+<p><strong>Durasi:</strong> 30–90 menit</p>
+<p><strong>Include:</strong> Lighting & Editing</p>
+</div>
+
+<label for="modalQty" style="font-weight: 600;">Jumlah Session:</label>
+<input id="modalQty" type="number" value="1" min="1" style="width: 100%; padding: 8px; margin: 5px 0 15px 0; border: 1px solid #ccc; border-radius: 4px;">
+
+<button id="addToCartBtn" class="btn">Tambahkan ke Keranjang</button>
+<a id="waBooking" target="_blank" class="btn wa-btn">Booking via WhatsApp</a>
+</div>
+</div>
+
+<div id="cartDrawer" class="cart-drawer">
+<div class="cart-header"><span>Keranjang</span><button id="closeCart" class="icon-btn">×</button></div>
+<div id="cartItems" class="cart-items"></div>
+<div class="cart-footer"><p>Total: <span id="cartTotal">Rp 0</span></p>
+<button class="btn checkout-btn wa-btn">Checkout via WhatsApp</button></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

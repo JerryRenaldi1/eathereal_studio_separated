@@ -1,0 +1,663 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+:root{
+  --primary:#111;
+  --accent:#25D366; /* Warna Hijau WhatsApp untuk CTA */
+  --bg:#f7f7f7;
+  --card:#ffffff;
+}
+
+/* BODY */
+body{
+  background:var(--bg);
+  color:#333;
+}
+
+/* HEADER */
+.site-header{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  background:#fff;
+  padding:15px 0;
+  z-index:50;
+  box-shadow:0 2px 10px rgba(0,0,0,0.08);
+}
+.header-inner{
+  max-width:1200px;
+  margin:auto;
+  padding:0 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.logo{
+  font-size:24px;
+  font-weight:700;
+  color:var(--primary);
+  text-decoration:none;
+}
+.icon-btn{
+  font-size:22px;
+  background:none;
+  border:0;
+  cursor:pointer;
+}
+
+/* HERO */
+.hero{
+  height:75vh;
+  margin-top:80px;
+  /* Menggunakan gambar studio-bg.jpg.jpg sebagai hero */
+  background:url("studio-bg.jpg.jpg") center/cover;
+  border-radius:0 0 40px 40px;
+  position:relative;
+  overflow:hidden;
+}
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.55); /* Overlay lebih gelap */
+}
+.hero-content{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  text-align:center;
+  color:white;
+  max-width:800px;
+  z-index: 10;
+}
+.hero-content h1{
+  font-size:52px; /* Ukuran lebih besar */
+  font-weight:700;
+  margin-bottom:15px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+.hero-content p{
+  font-size:20px;
+  opacity:0.9;
+}
+
+/* ABOUT */
+.about{
+  padding:70px 20px;
+  text-align:center;
+}
+.about h2{
+  font-size:32px;
+  margin-bottom:15px;
+  font-weight:700;
+}
+.about p{
+  max-width:800px;
+  margin:auto;
+  opacity:0.75;
+  font-size:16px;
+}
+
+/* PACKAGES (Dibuat lebih menonjol) */
+.packages{
+  padding:60px 20px;
+  background:white;
+  /* Memberikan sedikit pemisah visual */
+  border-top: 1px solid #eee;
+}
+.packages h2{
+  text-align:center;
+  font-size:32px;
+  margin-bottom:30px;
+  font-weight:700;
+}
+.package-grid{
+  max-width:1100px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:25px;
+}
+.package-card{
+  background:var(--card);
+  padding:30px; /* Padding lebih besar */
+  border-radius:15px;
+  box-shadow:0 5px 25px rgba(0,0,0,0.07);
+  text-align:center;
+  transition:.3s;
+  border: 1px solid #ddd;
+}
+.package-card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 10px 30px rgba(0,0,0,0.15); /* Bayangan lebih dalam saat hover */
+  border-color: var(--primary);
+}
+.package-card h3{
+  font-size:22px;
+  font-weight:700;
+  color: var(--primary);
+}
+.package-card .price{
+  font-size:30px; /* Ukuran harga lebih besar */
+  font-weight:800;
+  margin:10px 0 20px 0;
+  color:var(--accent); /* Warna harga menonjol (Hijau WhatsApp) */
+}
+.package-card ul{
+    list-style-type: none;
+    padding: 0;
+    text-align: left;
+    max-width: 200px;
+    margin: 0 auto 15px auto;
+}
+.package-card li{
+  opacity:0.85;
+  margin:8px 0;
+  border-bottom: 1px dashed #eee;
+  padding-bottom: 5px;
+  font-size: 15px;
+}
+
+/* SERVICES GRID */
+.container{
+  max-width:1200px;
+  margin:70px auto;
+  padding:0 20px;
+}
+.product-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:25px;
+}
+.product-card{
+  background:white;
+  border-radius:15px;
+  overflow:hidden;
+  box-shadow:0 5px 20px rgba(0,0,0,0.07);
+  cursor:pointer;
+  transition:.3s;
+}
+.product-card:hover{
+  transform:scale(1.03); /* Zoom sedikit saat hover */
+  box-shadow:0 8px 25px rgba(0,0,0,0.12);
+}
+.product-card img{
+  width:100%;
+  height:280px; /* Tinggi gambar sedikit lebih besar */
+  object-fit:cover;
+}
+.product-meta{
+  padding:15px;
+}
+.product-title{
+  font-weight:700;
+  font-size: 16px;
+}
+.product-price{
+  color:#777;
+  margin-top:5px;
+  font-weight: 500;
+}
+
+/* MODAL */
+.modal{
+  position:fixed;
+  top:0;left:0;right:0;bottom:0;
+  background:rgba(0,0,0,0.8); /* Background modal lebih gelap */
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:1000; /* Z-index lebih tinggi */
+}
+.hidden{display:none!important;}
+.modal-content{
+  width:380px;
+  background:#fff;
+  padding:20px;
+  position:relative;
+  border-radius:10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  animation:fadeIn .2s ease;
+}
+.modal-img{
+  width:100%;
+  height:200px;
+  object-fit:cover;
+  border-radius: 8px;
+  margin-bottom:15px;
+}
+.close-modal{
+  position:absolute;top:10px;right:10px;
+  font-size:24px;
+  background:none;border:0;cursor:pointer;
+  color: #333;
+}
+.extra-info{
+  background:#f2f2f2;
+  padding:12px;
+  border-radius:8px;
+  margin:15px 0;
+  border-left: 4px solid var(--accent); /* Aksen Hijau */
+}
+.extra-info p strong {
+    display: inline-block;
+    min-width: 70px;
+}
+
+/* BUTTON */
+.btn{
+  width:100%;
+  padding:14px; /* Padding lebih besar */
+  border-radius:8px;
+  border:none;
+  background:var(--primary);
+  color:white;
+  font-size:16px;
+  font-weight:600;
+  cursor:pointer;
+  margin-top:10px;
+  transition:.2s;
+}
+.btn:hover{
+  opacity:.9;
+}
+.wa-btn{
+  background:var(--accent)!important;
+  font-size: 18px; /* CTA lebih besar dan menonjol */
+}
+
+/* CART */
+.cart-drawer{
+  position:fixed;
+  top:0;
+  right:0;
+  width:330px;
+  height:100%;
+  background:white;
+  box-shadow:-5px 0 15px rgba(0,0,0,0.15);
+  transform:translateX(100%);
+  transition:.25s;
+  padding:20px;
+  z-index:2500; /* Z-index lebih tinggi dari modal */
+  display:flex;
+  flex-direction:column;
+}
+.cart-drawer.show{
+  transform:translateX(0);
+}
+.cart-header{
+  font-size:20px;
+  font-weight:700;
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:20px;
+}
+.cart-items{
+  flex:1;
+  overflow-y:auto;
+}
+.cart-item{
+  display:flex;
+  gap:10px;
+  margin-bottom:15px;
+  padding: 10px 0;
+  border-bottom: 1px dotted #ccc;
+}
+.cart-item img{
+  width:70px;
+  height:70px;
+  border-radius:8px;
+  object-fit:cover;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:25px;
+  opacity:.7;
+  margin-top:40px;
+}
+
+/* MOBILE */
+@media(max-width:780px){
+  .hero-content h1{font-size:36px}
+  .package-grid{grid-template-columns:1fr}
+  .product-grid{grid-template-columns:repeat(2, 1fr);}
+}*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+:root{
+  --primary:#111;
+  --accent:#25D366; /* Warna Hijau WhatsApp untuk CTA */
+  --bg:#f7f7f7;
+  --card:#ffffff;
+}
+
+/* BODY */
+body{
+  background:var(--bg);
+  color:#333;
+}
+
+/* HEADER */
+.site-header{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  background:#fff;
+  padding:15px 0;
+  z-index:50;
+  box-shadow:0 2px 10px rgba(0,0,0,0.08);
+}
+.header-inner{
+  max-width:1200px;
+  margin:auto;
+  padding:0 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.logo{
+  font-size:24px;
+  font-weight:700;
+  color:var(--primary);
+  text-decoration:none;
+}
+.icon-btn{
+  font-size:22px;
+  background:none;
+  border:0;
+  cursor:pointer;
+}
+
+/* HERO */
+.hero{
+  height:75vh;
+  margin-top:80px;
+  /* Menggunakan gambar studio-bg.jpg.jpg sebagai hero */
+  background:url("studio-bg.jpg.jpg") center/cover;
+  border-radius:0 0 40px 40px;
+  position:relative;
+  overflow:hidden;
+}
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.55); /* Overlay lebih gelap */
+}
+.hero-content{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  text-align:center;
+  color:white;
+  max-width:800px;
+  z-index: 10;
+}
+.hero-content h1{
+  font-size:52px; /* Ukuran lebih besar */
+  font-weight:700;
+  margin-bottom:15px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+.hero-content p{
+  font-size:20px;
+  opacity:0.9;
+}
+
+/* ABOUT */
+.about{
+  padding:70px 20px;
+  text-align:center;
+}
+.about h2{
+  font-size:32px;
+  margin-bottom:15px;
+  font-weight:700;
+}
+.about p{
+  max-width:800px;
+  margin:auto;
+  opacity:0.75;
+  font-size:16px;
+}
+
+/* PACKAGES (Dibuat lebih menonjol) */
+.packages{
+  padding:60px 20px;
+  background:white;
+  /* Memberikan sedikit pemisah visual */
+  border-top: 1px solid #eee;
+}
+.packages h2{
+  text-align:center;
+  font-size:32px;
+  margin-bottom:30px;
+  font-weight:700;
+}
+.package-grid{
+  max-width:1100px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:25px;
+}
+.package-card{
+  background:var(--card);
+  padding:30px; /* Padding lebih besar */
+  border-radius:15px;
+  box-shadow:0 5px 25px rgba(0,0,0,0.07);
+  text-align:center;
+  transition:.3s;
+  border: 1px solid #ddd;
+}
+.package-card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 10px 30px rgba(0,0,0,0.15); /* Bayangan lebih dalam saat hover */
+  border-color: var(--primary);
+}
+.package-card h3{
+  font-size:22px;
+  font-weight:700;
+  color: var(--primary);
+}
+.package-card .price{
+  font-size:30px; /* Ukuran harga lebih besar */
+  font-weight:800;
+  margin:10px 0 20px 0;
+  color:var(--accent); /* Warna harga menonjol (Hijau WhatsApp) */
+}
+.package-card ul{
+    list-style-type: none;
+    padding: 0;
+    text-align: left;
+    max-width: 200px;
+    margin: 0 auto 15px auto;
+}
+.package-card li{
+  opacity:0.85;
+  margin:8px 0;
+  border-bottom: 1px dashed #eee;
+  padding-bottom: 5px;
+  font-size: 15px;
+}
+
+/* SERVICES GRID */
+.container{
+  max-width:1200px;
+  margin:70px auto;
+  padding:0 20px;
+}
+.product-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:25px;
+}
+.product-card{
+  background:white;
+  border-radius:15px;
+  overflow:hidden;
+  box-shadow:0 5px 20px rgba(0,0,0,0.07);
+  cursor:pointer;
+  transition:.3s;
+}
+.product-card:hover{
+  transform:scale(1.03); /* Zoom sedikit saat hover */
+  box-shadow:0 8px 25px rgba(0,0,0,0.12);
+}
+.product-card img{
+  width:100%;
+  height:280px; /* Tinggi gambar sedikit lebih besar */
+  object-fit:cover;
+}
+.product-meta{
+  padding:15px;
+}
+.product-title{
+  font-weight:700;
+  font-size: 16px;
+}
+.product-price{
+  color:#777;
+  margin-top:5px;
+  font-weight: 500;
+}
+
+/* MODAL */
+.modal{
+  position:fixed;
+  top:0;left:0;right:0;bottom:0;
+  background:rgba(0,0,0,0.8); /* Background modal lebih gelap */
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:1000; /* Z-index lebih tinggi */
+}
+.hidden{display:none!important;}
+.modal-content{
+  width:380px;
+  background:#fff;
+  padding:20px;
+  position:relative;
+  border-radius:10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  animation:fadeIn .2s ease;
+}
+.modal-img{
+  width:100%;
+  height:200px;
+  object-fit:cover;
+  border-radius: 8px;
+  margin-bottom:15px;
+}
+.close-modal{
+  position:absolute;top:10px;right:10px;
+  font-size:24px;
+  background:none;border:0;cursor:pointer;
+  color: #333;
+}
+.extra-info{
+  background:#f2f2f2;
+  padding:12px;
+  border-radius:8px;
+  margin:15px 0;
+  border-left: 4px solid var(--accent); /* Aksen Hijau */
+}
+.extra-info p strong {
+    display: inline-block;
+    min-width: 70px;
+}
+
+/* BUTTON */
+.btn{
+  width:100%;
+  padding:14px; /* Padding lebih besar */
+  border-radius:8px;
+  border:none;
+  background:var(--primary);
+  color:white;
+  font-size:16px;
+  font-weight:600;
+  cursor:pointer;
+  margin-top:10px;
+  transition:.2s;
+}
+.btn:hover{
+  opacity:.9;
+}
+.wa-btn{
+  background:var(--accent)!important;
+  font-size: 18px; /* CTA lebih besar dan menonjol */
+}
+
+/* CART */
+.cart-drawer{
+  position:fixed;
+  top:0;
+  right:0;
+  width:330px;
+  height:100%;
+  background:white;
+  box-shadow:-5px 0 15px rgba(0,0,0,0.15);
+  transform:translateX(100%);
+  transition:.25s;
+  padding:20px;
+  z-index:2500; /* Z-index lebih tinggi dari modal */
+  display:flex;
+  flex-direction:column;
+}
+.cart-drawer.show{
+  transform:translateX(0);
+}
+.cart-header{
+  font-size:20px;
+  font-weight:700;
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:20px;
+}
+.cart-items{
+  flex:1;
+  overflow-y:auto;
+}
+.cart-item{
+  display:flex;
+  gap:10px;
+  margin-bottom:15px;
+  padding: 10px 0;
+  border-bottom: 1px dotted #ccc;
+}
+.cart-item img{
+  width:70px;
+  height:70px;
+  border-radius:8px;
+  object-fit:cover;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:25px;
+  opacity:.7;
+  margin-top:40px;
+}
+
+/* MOBILE */
+@media(max-width:780px){
+  .hero-content h1{font-size:36px}
+  .package-grid{grid-template-columns:1fr}
+  .product-grid{grid-template-columns:repeat(2, 1fr);}
+}
